@@ -30,15 +30,19 @@ var links = [
   { source: "blue", target: "purple" },
   { source: "purple", target: "red" },
   { source: "green", target: "red" },
-]
+];
 
 var simulation = d3.forceSimulation(nodes);
 
 simulation  
     .force("center", d3.forceCenter(width / 2, height / 2))
     .force("nodes", d3.forceManyBody())
-    .on('tick', () => {
+    .force("links", d3.forceLink(links)
+                        .id(d => d.color))
+    .on('tick', ticked);
+    
+function ticked() {
       nodeSelection 
           .attr('cx', d => d.x)
           .attr('cy', d => d.y);
-    })
+    }

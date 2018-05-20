@@ -28,3 +28,16 @@ type of event possible: tick (1 second) or end
 
 Nodes in this example are pulled to the center by the forceCenter() but pushed apart by forceManyBody()
 
+**FORCE DIRECTED GRAPH**
+- requires a link array with objects indicating a source and a target
+- links may have different forces:
+
+**d3.forceLink([links])**
+
+**link.id([id])** 
+alows a departure from d3's way of matching links (by index). We can specify how links should be matched to values.
+
+Strength of the force of the link determined by 2 values: distance (how long the link wants to be), strength (proportionate to actual distance and original length - like a spring)
+
+**distance()**
+
