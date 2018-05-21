@@ -40,4 +40,19 @@ alows a departure from d3's way of matching links (by index). We can specify how
 Strength of the force of the link determined by 2 values: distance (how long the link wants to be), strength (proportionate to actual distance and original length - like a spring)
 
 **distance()**
+a callback can be passed to this method, for example to make the distance dependent on the size of the two nodes
+
+**MAKING NODES DRAGGABLE with d3.drag()**
+- implement a drag feature on nodes
+- during drag, ignore other forces from the simulation 
+- d3.drag() method invoked by using the call method on the selection
+- d3.drag() exposes 3 events: start, drag, end
+
+fixing a node's position:
+
+fx - fix x position
+fy - fix y position
+to remove fixed position, set fx and fy to null
+
+
 
