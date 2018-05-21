@@ -70,19 +70,21 @@ function ticked() {
 
     function dragStart(d){
       console.log("starting to drag");
+      simulation.alphaTarget(0.5).restart(); //gives alpha a new target to increase to
       d.fx = d.x;
       d.fy = d.y;
     }
 
     function drag(d){
       console.log("dragging!");
-      simulation.alpha(0.5).restart(); //forcibly setting a higher alpha value which will allow rearrangement of nodes (and then will fall to 0)
+      //simulation.alpha(0.5).restart(); //forcibly setting a higher alpha value which will allow rearrangement of nodes (and then will fall to 0)
       d.fx = d3.event.x;
       d.fy = d3.event.y;
     }
 
     function dragEnd(d){
       console.log("done dragging! :)");
+      simulation.alphaTarget(0); //puts alpha back to sleep
       d.fx = null;
       d.fy = null;
 
