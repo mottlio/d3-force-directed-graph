@@ -56,6 +56,7 @@ simulation
     .on('tick', ticked);
     
 function ticked() {
+      console.log(simulation.alpha())
       nodeSelection 
           .attr('cx', d => d.x)
           .attr('cy', d => d.y);
@@ -75,6 +76,7 @@ function ticked() {
 
     function drag(d){
       console.log("dragging!");
+      simulation.alpha(0.5).restart(); //forcibly setting a higher alpha value which will allow rearrangement of nodes (and then will fall to 0)
       d.fx = d3.event.x;
       d.fy = d3.event.y;
     }

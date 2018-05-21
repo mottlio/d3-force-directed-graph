@@ -54,5 +54,22 @@ fx - fix x position
 fy - fix y position
 to remove fixed position, set fx and fy to null
 
+**SIMULATION COOLING**
+- forces not applied continuously
+- based on ALPHA value
+- ALPHA decays after every tick
+- after reaching minimum ALPHA, simulation stops
 
+**simulation.alpha([newAlpha])** - get or set a new ALPHA
+**simulation.alphaMin([newMin])** - get/set new min
+**simulation.alphaDecay([newDecay])** - get/set new decay value
+**simulation.alphaTarget([newTgt])**
 
+eg.
+
+function drag(d){
+      console.log("dragging!");
+      simulation.alpha(0.5).restart(); //forcibly setting a higher alpha value which will allow rearrangement of nodes (and then will fall to 0)
+      d.fx = d3.event.x;
+      d.fy = d3.event.y;
+    }
